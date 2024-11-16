@@ -26,7 +26,7 @@ class FirebaseAuthController extends Controller
         ]);
         try {
             $user = $this->auth->createUserWithEmailAndPassword($request->input('email'), $request->input('password'));
-            session(['firebase_user_id' => $$user->uid]);
+            session(['firebase_user_id' => $user->uid]);
             return 'User created: ' . $user->uid;
         } catch (\Exception $e) {
             return 'Error: ' . $e->getMessage();
